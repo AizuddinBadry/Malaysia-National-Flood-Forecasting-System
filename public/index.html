@@ -1,0 +1,110 @@
+
+<html >
+<!--<![endif]-->
+
+<head>
+    <title>UNITEN Banjir Web App</title>
+    <link rel="shortcut icon" href="favicon.ico" />
+    <!-- start: META -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700%7CRaleway:400,100,200,300,500,600,700,800,900/" />
+    <link type="text/css" rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css" />
+    <link type="text/css" rel="stylesheet" href="../bower_components/font-awesome/css/font-awesome.min.css" />
+    <link type="text/css" rel="stylesheet" href="assets/fonts/clip-font.min.css" />
+    <link type="text/css" rel="stylesheet" href="../bower_components/iCheck/skins/all.css" />
+    <link type="text/css" rel="stylesheet" href="../bower_components/perfect-scrollbar/css/perfect-scrollbar.min.css" />
+    <link type="text/css" rel="stylesheet" href="../bower_components/sweetalert/dist/sweetalert.css" />
+    <link type="text/css" rel="stylesheet" href="assets/css/main.min.css" />
+    <link type="text/css" rel="stylesheet" href="assets/css/main-responsive.min.css" />
+    <link type="text/css" rel="stylesheet" media="print" href="assets/css/print.min.css" />
+    <link type="text/css" rel="stylesheet" id="skin_color" href="assets/css/theme/light.min.css" />
+
+    <!-- end: MAIN CSS -->
+    <!-- start: CSS REQUIRED FOR THIS PAGE ONLY -->
+    <link href="../bower_components/fullcalendar/dist/fullcalendar.min.css" rel="stylesheet" />
+    <!-- end: CSS REQUIRED FOR THIS PAGE ONLY -->
+</head>
+
+<body>
+
+    <!-- start: HEADER -->
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <!-- start: TOP NAVIGATION CONTAINER -->
+        <div class="container">
+            <div class="navbar-header">
+                <!-- start: RESPONSIVE MENU TOGGLER -->
+                <button data-target=".navbar-collapse" data-toggle="collapse" class="navbar-toggle" type="button">
+                <span class="clip-list-2"></span>
+            </button>
+                <!-- end: RESPONSIVE MENU TOGGLER -->
+                <!-- start: LOGO -->
+                <a class="navbar-brand" href="index.html">
+                UNITEN Banjir Web App
+                </a>
+                <!-- end: LOGO -->
+            </div>
+        </div>
+    </div>
+    <!-- end: HEADER -->
+    <!-- start: MAIN CONTAINER -->
+    <div class="main-container">
+        <div class="navbar-content">
+            <!-- start: SIDEBAR -->
+            <div class="main-navigation navbar-collapse collapse">
+                <!-- start: MAIN MENU TOGGLER BUTTON -->
+                <div class="navigation-toggler">
+                    <i class="clip-chevron-left"></i>
+                    <i class="clip-chevron-right"></i>
+                </div>
+                <!-- end: MAIN MENU TOGGLER BUTTON -->
+                <!-- start: MAIN NAVIGATION MENU -->
+                <ul class="main-navigation-menu">
+                    <li>
+                        <a href="">
+                            <i class="clip-home-3"></i>
+                            <span class="title"> Terengganu </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)">
+                            <i class="clip-home-3"></i>
+                            <span class="title"> Perlis </span>
+                        </a>
+                    </li>
+                </ul>
+                <!-- end: MAIN NAVIGATION MENU -->
+            </div>
+            <!-- end: SIDEBAR -->
+        </div>
+
+        <!-- start: PAGE -->
+        
+            <div id="terengganu" class="flot-placeholder"></div>
+        
+        <!-- end: PAGE -->
+    </div>
+    <!-- end: MAIN CONTAINER -->
+    <script type="text/javascript" src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <!--<![endif]-->
+
+    <script type="text/javascript" src="../bower_components/jquery-ui/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../bower_components/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js"></script>
+    <script type="text/javascript" src="../bower_components/blockUI/jquery.blockUI.js"></script>
+    <script type="text/javascript" src="../bower_components/iCheck/icheck.min.js"></script>
+    <script type="text/javascript" src="../bower_components/perfect-scrollbar/js/min/perfect-scrollbar.jquery.min.js"></script>
+    <script type="text/javascript" src="../bower_components/jquery.cookie/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../bower_components/sweetalert/dist/sweetalert.min.js"></script>
+    <script type="text/javascript" src="assets/js/min/main.min.js"></script>
+    <!-- end: MAIN JAVASCRIPTS -->
+    <script>
+        jQuery(document).ready(function() {
+            Main.init();
+            Index.init();
+        });
+    </script>
+
+</body>
+
+</html>
