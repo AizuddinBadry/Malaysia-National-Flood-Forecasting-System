@@ -115,7 +115,7 @@ const SidebarExample = () => (
                                 </a>
                                 <ul className="sub-menu">
                                  <li>
-                                            <Link to="/sg_lebir_dabong">Sg.Lebir di Dabong</Link>
+                                            <Link to="/sg_lebir_dabong">Sg.Galas di Dabong</Link>
                                     </li>
                                     <li>
                                             <Link to="/sg_lebir_tualang">Sg.Lebir di Tualang</Link>

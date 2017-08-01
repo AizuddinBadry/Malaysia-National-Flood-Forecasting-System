@@ -835,7 +835,6 @@ const unitHydrographOption = {
                               <div className="col-md-12">
                                 <div className="flot-medium-container">
                                      <Line data={data} options={options} />
-                                     
                                 </div>
                                
                                 </div>
