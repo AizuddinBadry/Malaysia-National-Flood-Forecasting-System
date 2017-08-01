@@ -95,7 +95,7 @@ const SidebarExample = () => (
                    <li className="">
                         <a>
                             <i className="clip-bars"></i>
-                            <span className="title"> Kelantan Banjir Statistic </span><i className="icon-arrow"></i>
+                            <span className="title"> Kelantan Current Situation </span><i className="icon-arrow"></i>
                         </a>
                         <ul className="sub-menu">
                             <li>
