@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
-import './App.css';
 import {Line, Bar} from 'react-chartjs-2';
 import axios from 'axios';
 import StageRegression from './Resource/stage_regression'
+import RainfallCorrelation from './Resource/rainfall_correlation'
+import PastRecord from './Resource/past_record'
+import DatePicker from 'react-datepicker';
+import moment from 'moment';
+
+import 'react-datepicker/dist/react-datepicker.css';
+
 
 
 
@@ -21,8 +27,9 @@ class sg_kelantan_kuala_krai extends Component {
             twelvePM: '', onePM: '',twoPM: '',threePM: '',fourPM: '',fivePM: '',sixPM: '',sevenPM: '',eightPM: '',ninePM: '',tenPM: '',
             elevenPM: '',twelveAM: '',forecast_oneAM: '',forecast_twoAM: '',forecast_threeAM: '',forecast_fourAM: '',forecast_fiveAM: '',forecast_sixAM: '',forecast_sevenAM: '',forecast_eightAM: '',forecast_nineAM: '',forecast_tenAM: '',forecast_elevenAM: '',
             forecast_twelvePM: '', forecast_onePM: '',forecast_twoPM: '',forecast_threePM: '',forecast_fourPM: '',forecast_fivePM: '',forecast_sixPM: '',forecast_sevenPM: '',forecast_eightPM: '',forecast_ninePM: '',forecast_tenPM: '',
-            forecast_elevenPM: '',forecast_twelveAM: '',
+            forecast_elevenPM: '',forecast_twelveAM: '',startDate: moment(),
         };
+        this.handleChange = this.handleChange.bind(this)
     }
 
     
@@ -33,6 +40,13 @@ class sg_kelantan_kuala_krai extends Component {
     var forecasted = []
 
 
+    }
+
+  handleChange(date) {
+    var self = this;
+      self.setState({
+        startDate: date
+      });
     }
 
   render() {
@@ -788,7 +802,7 @@ const unitHydrographOption = {
                         <div className="page-header">
                             <center>
                               <h1>Sg. Kelantan di Kuala Krai</h1><br/>
-                              <span className="label label-info"> {this.state.DateComponent}</span>
+                              <h1><span className="label label-info"> {this.state.DateComponent}</span></h1>
                             </center>
 
                         </div>
@@ -796,27 +810,9 @@ const unitHydrographOption = {
                 </div>
             
                 <StageRegression station="Sg.Kelantan di Kuala Krai"/>
+                <RainfallCorrelation station="Sg.Kelantan di Kuala Krai"/>
 
-                <div className="row">
-                    <div className="col-sm-12">
-                    <h3>Rainfall Correlation</h3>
-                        <div className="panel panel-default">
-                            <div className="panel-heading">
-                                <i className="clip-stats"></i> Sg. Kelantan di Kuala Krai Station Rainfall Chart
-                                <div className="panel-tools">
-                                    <a className="btn btn-xs btn-link panel-collapse collapses" href="index.html#">
-                                    </a>
-                                </div>
-                            </div>
-                            <div className="panel-body">
-                                <div className="flot-medium-container">
-                                  <Bar data={data2} options={options2} />
-                                </div>
-                                <center><span className="label label-info">Date : {this.state.DateComponent}</span></center>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                
 
                 <div id="container" ></div>
 
@@ -860,165 +856,34 @@ const unitHydrographOption = {
                         </div>
                     </div>
                 </div>
-              <div id="container" ></div>
-                <div className="row">
-
-                                    <div className="col-sm-12">
-                                    <h3>Past Water Level Record</h3>
-                                        <div className="tabbable">
-                                            <ul id="myTab4" className="nav nav-tabs tab-padding tab-space-3 tab-blue">
-                                                <li className="active">
-                                                    <a href="ui_tabs_accordions.html#monday" data-toggle="tab" aria-expanded="false">
-                                                        Past 1 Days
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="ui_tabs_accordions.html#tuesday" data-toggle="tab" aria-expanded="true">
-                                                        Past 2 Days
-                                                    </a>
-                                                </li>
-                                                <li className="">
-                                                    <a href="ui_tabs_accordions.html#wednesday" data-toggle="tab" aria-expanded="false">
-                                                        Past 3 Days
-                                                    </a>
-                                                </li>
-                                                <li className="">
-                                                    <a href="ui_tabs_accordions.html#thursday" data-toggle="tab" aria-expanded="false">
-                                                        Past 4 Days
-                                                    </a>
-                                                </li>
-                                                <li className="">
-                                                    <a href="ui_tabs_accordions.html#friday" data-toggle="tab" aria-expanded="false">
-                                                        Past 5 Days
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                            <div className="tab-content">
-                                                <div className="tab-pane active" id="monday">
-                                                 <center><span className="label label-info">Record for : {this.state.past1Day}</span></center>
-                                                  <div className="panel-body">
-                                                    <div className="flot-medium-container">
-                                                      <Line data={data3} options={options} />
-                                                    </div>
-                                                     <table className="table table-hover">
-                                                      <thead>
-                                                          <tr>
-                                                             <th className="center">Time</th>
-                                                              <th className="center">River Level</th>
-                                                               <th className="center">Forecast</th>
-                                                              <th className="center">Normal</th>
-                                                              <th className="center">Alert</th>
-                                                              <th className="center">Warning</th>
-                                                              <th className="center">Danger</th>
-                                                          </tr>
-                                                      </thead>
-                                                      <tbody>
-                                                          {current_status}
-                                                      </tbody>
-                                                  </table>
-                                                </div>
-                                                </div>
-                                                <div className="tab-pane" id="tuesday">
-                                                  <center><span className="label label-info">Record for : {this.state.past2Day}</span></center>
-                                                    <div className="panel-body">
-                                                    <div className="flot-medium-container">
-                                                       <Line data={data3} options={options} />
-                                                    </div>
-                                                     <table className="table table-hover">
-                                                      <thead>
-                                                          <tr>
-                                                             <th className="center">Time</th>
-                                                              <th className="center">River Level</th>
-                                                              <th className="center">Forecast</th>
-                                                              <th className="center">Normal</th>
-                                                              <th className="center">Alert</th>
-                                                              <th className="center">Warning</th>
-                                                              <th className="center">Danger</th>
-                                                          </tr>
-                                                      </thead>
-                                                      <tbody>
-                                                          {current_status}
-                                                      </tbody>
-                                                  </table>
-                                                </div>
-                                                </div>
-                                                <div className="tab-pane" id="wednesday">
-                                                    <div className="panel-body">
-                                                    <div className="flot-medium-container">
-                                                        <Line data={data} options={options} />
-                                                    </div>
-                                                     <table className="table table-hover">
-                                                      <thead>
-                                                          <tr>
-                                                              <th className="center">Station ID</th>
-                                                              <th className="center">Station Name</th>
-                                                              <th className="center">River Basin</th>
-                                                              <th className="center">Time</th>
-                                                              <th className="center">River Level</th>
-                                                          </tr>
-                                                      </thead>
-                                                      <tbody>
-                                                          
-                                                      </tbody>
-                                                  </table>
-                                                </div>
-                                                </div>
-                                                  <div className="tab-pane" id="thursday">
-                                                  <div className="panel-body">
-                                                    <div className="flot-medium-container">
-                                                       <Line data={data} options={options} />
-                                                    </div>
-                                                     <table className="table table-hover">
-                                                      <thead>
-                                                          <tr>
-                                                              <th className="center">Station ID</th>
-                                                              <th className="center">Station Name</th>
-                                                              <th className="center">River Basin</th>
-                                                              <th className="center">Time</th>
-                                                              <th className="center">River Level</th>
-                                                          </tr>
-                                                      </thead>
-                                                      <tbody>
-                                                          
-                                                      </tbody>
-                                                  </table>
-                                                </div>
-                                                </div>
-                                                  <div className="tab-pane" id="friday">
-                                                   <div className="panel-body">
-                                                    <div className="flot-medium-container">
-                                                       <Line data={data} options={options} />
-                                                    </div>
-                                                     <table className="table table-hover">
-                                                      <thead>
-                                                          <tr>
-                                                              <th className="center">Station ID</th>
-                                                              <th className="center">Station Name</th>
-                                                              <th className="center">River Basin</th>
-                                                              <th className="center">Time</th>
-                                                              <th className="center">River Level</th>
-                                                          </tr>
-                                                      </thead>
-                                                      <tbody>
-                                                          
-                                                      </tbody>
-                                                  </table>
-                                                </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+              <div className="row">
+                <div className="col-sm-12">
+                  <h3>Past Water Level Record</h3>
+                  <center>
+                  Please Select Date
+                  <DatePicker
+                    dateFormat="D/M/YYYY"
+                    selected={this.state.startDate}
+                    onChange={this.handleChange}
+                    minDate={moment().subtract(7, 'days').calendar()}
+                    maxDate={moment()}
+                    placeholderText="Select a date between today and 7 days backwards"
+                  />
+                  </center>
+                  
+                    <PastRecord/>
+                </div>
+              </div>
 
 
-                                    <div className="footer clearfix">
-                                      <div className="footer-inner">
-                                         &copy; NaFFWS Kelantan 
-                                      </div>
-                                      <div className="footer-items">
-                                          <span className="go-top"><i className="clip-chevron-up"></i></span>
-                                      </div>
-                                  </div>
+                            <div className="footer clearfix">
+                              <div className="footer-inner">
+                                 &copy; NaFFWS Kelantan 
+                              </div>
+                              <div className="footer-items">
+                                  <span className="go-top"><i className="clip-chevron-up"></i></span>
+                              </div>
+                          </div>
                     </div>
             </div>
     );

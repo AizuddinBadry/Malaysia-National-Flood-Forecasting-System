@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Line, Bar} from 'react-chartjs-2';
+import {Line} from 'react-chartjs-2';
 import axios from 'axios';
 
 
@@ -422,9 +422,6 @@ labelString: 'Time'
 
 return (
 <div style={{"width" : "100%"}}> 
-	<div className="row">
-		<div className="col-sm-12">
-			<h3>Stage Regression</h3>
 			<div className="panel panel-default">
 				<div className="panel-heading">
 					<i className="clip-stats"></i> Sg. Kelantan di Kuala Krai Station Regression Chart
@@ -435,6 +432,7 @@ return (
 				</div>
 				<div className="panel-body">
 					<div className="row">
+					<center><p><span className="label label-info">Record for : {this.props.date}</span></p></center>
 						<div className="col-md-12">
 							<div className="flot-medium-container">
 								<Line data={data} options={options} />
@@ -476,8 +474,6 @@ return (
 				</div>
 			</div>
 		</div>
-	</div>
-</div>
 );
 }
 }
