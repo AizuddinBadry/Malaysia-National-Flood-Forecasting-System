@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import {Line, Bar} from 'react-chartjs-2';
 import axios from 'axios';
+import StageRegression from './Resource/stage_regression'
 
 
 
@@ -30,31 +31,7 @@ class sg_kelantan_kuala_krai extends Component {
     var self = this;
     var water_level = []
     var forecasted = []
-    axios.get('https://banjirv2.herokuapp.com/Kelantan?station_name=Sg.Kelantan%20di%20Kuala%20Krai&date='+ this.state.DateComponent).then(function (response) {self.setState({current_status : response.data});}).catch(function (error) {console.log(error);});
-    axios.get('https://banjirv2.herokuapp.com/Kelantan?station_name=Sg.Kelantan%20di%20Kuala%20Krai&time=00:00&date='+ this.state.DateComponent).then(function (response) {self.setState({twelveAM : response.data[0].water_level, forecast_twelveAM: response.data[0].stage_forecast});}).catch(function (error) {console.log(error);});
-    axios.get('https://banjirv2.herokuapp.com/Kelantan?station_name=Sg.Kelantan%20di%20Kuala%20Krai&time=01:00&date='+ this.state.DateComponent).then(function (response) {self.setState({oneAM : response.data[0].water_level, forecast_oneAM: response.data[0].stage_forecast});}).catch(function (error) {console.log(error);});
-    axios.get('https://banjirv2.herokuapp.com/Kelantan?station_name=Sg.Kelantan%20di%20Kuala%20Krai&time=02:00&date='+ this.state.DateComponent).then(function (response) {self.setState({twoAM : response.data[0].water_level, forecast_twoAM: response.data[0].stage_forecast});}).catch(function (error) {console.log(error);});
-    axios.get('https://banjirv2.herokuapp.com/Kelantan?station_name=Sg.Kelantan%20di%20Kuala%20Krai&time=03:00&date='+ this.state.DateComponent).then(function (response) {self.setState({threeAM : response.data[0].water_level, forecast_threeAM: response.data[0].stage_forecast});}).catch(function (error) {console.log(error);});
-    axios.get('https://banjirv2.herokuapp.com/Kelantan?station_name=Sg.Kelantan%20di%20Kuala%20Krai&time=04:00&date='+ this.state.DateComponent).then(function (response) {self.setState({fourAM : response.data[0].water_level, forecast_fourAM: response.data[0].stage_forecast});}).catch(function (error) {console.log(error);});
-    axios.get('https://banjirv2.herokuapp.com/Kelantan?station_name=Sg.Kelantan%20di%20Kuala%20Krai&time=05:00&date='+ this.state.DateComponent).then(function (response) {self.setState({fiveAM : response.data[0].water_level, forecast_fiveAM: response.data[0].stage_forecast});}).catch(function (error) {console.log(error);});
-    axios.get('https://banjirv2.herokuapp.com/Kelantan?station_name=Sg.Kelantan%20di%20Kuala%20Krai&time=06:00&date='+ this.state.DateComponent).then(function (response) {self.setState({sixAM : response.data[0].water_level, forecast_sixAM: response.data[0].stage_forecast});}).catch(function (error) {console.log(error);});
-    axios.get('https://banjirv2.herokuapp.com/Kelantan?station_name=Sg.Kelantan%20di%20Kuala%20Krai&time=07:00&date='+ this.state.DateComponent).then(function (response) {self.setState({sevenAM : response.data[0].water_level, forecast_sevenAM: response.data[0].stage_forecast});}).catch(function (error) {console.log(error);});
-    axios.get('https://banjirv2.herokuapp.com/Kelantan?station_name=Sg.Kelantan%20di%20Kuala%20Krai&time=08:00&date='+ this.state.DateComponent).then(function (response) {self.setState({eightAM : response.data[0].water_level, forecast_eightAM: response.data[0].stage_forecast});}).catch(function (error) {console.log(error);});
-    axios.get('https://banjirv2.herokuapp.com/Kelantan?station_name=Sg.Kelantan%20di%20Kuala%20Krai&time=09:00&date='+ this.state.DateComponent).then(function (response) {self.setState({nineAM : response.data[0].water_level, forecast_nineAM: response.data[0].stage_forecast});}).catch(function (error) {console.log(error);});
-    axios.get('https://banjirv2.herokuapp.com/Kelantan?station_name=Sg.Kelantan%20di%20Kuala%20Krai&time=10:00&date='+ this.state.DateComponent).then(function (response) {self.setState({tenAM : response.data[0].water_level, forecast_tenAM: response.data[0].stage_forecast});}).catch(function (error) {console.log(error);});
-    axios.get('https://banjirv2.herokuapp.com/Kelantan?station_name=Sg.Kelantan%20di%20Kuala%20Krai&time=11:00&date='+ this.state.DateComponent).then(function (response) {self.setState({elevenAM : response.data[0].water_level, forecast_elevenAM: response.data[0].stage_forecast});}).catch(function (error) {console.log(error);});
-    axios.get('https://banjirv2.herokuapp.com/Kelantan?station_name=Sg.Kelantan%20di%20Kuala%20Krai&time=12:00&date='+ this.state.DateComponent).then(function (response) {self.setState({twelvePM : response.data[0].water_level, forecast_twelvePM: response.data[0].stage_forecast});}).catch(function (error) {console.log(error);});
-    axios.get('https://banjirv2.herokuapp.com/Kelantan?station_name=Sg.Kelantan%20di%20Kuala%20Krai&time=13:00&date='+ this.state.DateComponent).then(function (response) {self.setState({onePM : response.data[0].water_level, forecast_onePM: response.data[0].stage_forecast});}).catch(function (error) {console.log(error);});
-    axios.get('https://banjirv2.herokuapp.com/Kelantan?station_name=Sg.Kelantan%20di%20Kuala%20Krai&time=14:00&date='+ this.state.DateComponent).then(function (response) {self.setState({twoPM : response.data[0].water_level, forecast_twoPM: response.data[0].stage_forecast});}).catch(function (error) {console.log(error);});
-    axios.get('https://banjirv2.herokuapp.com/Kelantan?station_name=Sg.Kelantan%20di%20Kuala%20Krai&time=15:00&date='+ this.state.DateComponent).then(function (response) {self.setState({threePM : response.data[0].water_level, forecast_threePM: response.data[0].stage_forecast});}).catch(function (error) {console.log(error);});
-    axios.get('https://banjirv2.herokuapp.com/Kelantan?station_name=Sg.Kelantan%20di%20Kuala%20Krai&time=16:00&date='+ this.state.DateComponent).then(function (response) {self.setState({fourPM : response.data[0].water_level, forecast_fourPM: response.data[0].stage_forecast});}).catch(function (error) {console.log(error);});
-    axios.get('https://banjirv2.herokuapp.com/Kelantan?station_name=Sg.Kelantan%20di%20Kuala%20Krai&time=17:00&date='+ this.state.DateComponent).then(function (response) {self.setState({fivePM : response.data[0].water_level, forecast_fivePM: response.data[0].stage_forecast});}).catch(function (error) {console.log(error);});
-    axios.get('https://banjirv2.herokuapp.com/Kelantan?station_name=Sg.Kelantan%20di%20Kuala%20Krai&time=18:00&date='+ this.state.DateComponent).then(function (response) {self.setState({sixPM : response.data[0].water_level, forecast_sixPM: response.data[0].stage_forecast});}).catch(function (error) {console.log(error);});
-    axios.get('https://banjirv2.herokuapp.com/Kelantan?station_name=Sg.Kelantan%20di%20Kuala%20Krai&time=19:00&date='+ this.state.DateComponent).then(function (response) {self.setState({sevenPM : response.data[0].water_level, forecast_sevenPM: response.data[0].stage_forecast});}).catch(function (error) {console.log(error);});
-    axios.get('https://banjirv2.herokuapp.com/Kelantan?station_name=Sg.Kelantan%20di%20Kuala%20Krai&time=20:00&date='+ this.state.DateComponent).then(function (response) {self.setState({eightPM : response.data[0].water_level, forecast_eightPM: response.data[0].stage_forecast});}).catch(function (error) {console.log(error);});
-    axios.get('https://banjirv2.herokuapp.com/Kelantan?station_name=Sg.Kelantan%20di%20Kuala%20Krai&time=21:00&date='+ this.state.DateComponent).then(function (response) {self.setState({ninePM : response.data[0].water_level, forecast_ninePM: response.data[0].stage_forecast});}).catch(function (error) {console.log(error);});
-    axios.get('https://banjirv2.herokuapp.com/Kelantan?station_name=Sg.Kelantan%20di%20Kuala%20Krai&time=22:00&date='+ this.state.DateComponent).then(function (response) {self.setState({tenPM : response.data[0].water_level, forecast_tenPM: response.data[0].stage_forecast});}).catch(function (error) {console.log(error);});
-    axios.get('https://banjirv2.herokuapp.com/Kelantan?station_name=Sg.Kelantan%20di%20Kuala%20Krai&time=23:00&date='+ this.state.DateComponent).then(function (response) {self.setState({elevenPM : response.data[0].water_level, forecast_elevenPM: response.data[0].stage_forecast});}).catch(function (error) {console.log(error);});
+
 
     }
 
@@ -818,66 +795,8 @@ const unitHydrographOption = {
                     </div>
                 </div>
             
-                <div className="row">
-               
-                    <div className="col-sm-12">
-                    <h3>Stage Regression</h3>
-                        <div className="panel panel-default">
-                            <div className="panel-heading">
-                                <i className="clip-stats"></i> Sg. Kelantan di Kuala Krai Station Regression Chart
-                                <div className="panel-tools">
-                                    <a className="btn btn-xs btn-link panel-collapse collapses">
-                                    </a>
-                                </div>
-                            </div>
-                            <div className="panel-body">
-                            <div className="row">
-                              <div className="col-md-12">
-                                <div className="flot-medium-container">
-                                     <Line data={data} options={options} />
-                                </div>
-                               
-                                </div>
-                            </div>
-                                <div className="row">
-                            <div className="col-md-12">
-                                <div className="panel panel-default">
-                                    <div className="panel-heading">
-                                        <i className="fa fa-external-link-square"></i> Current Water Level Status
-                                        <div className="panel-tools">
-                                            <a className="btn btn-xs btn-link panel-collapse collapses">
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div className="panel-body">
-                                        <table className="table table-bordered table-hover">
-                                            <thead>
-                                                <tr>
-                                                    <th className="center">Time</th>
-                                                    <th className="center">River Level</th>
-                                                     <th className="center">Forecast</th>
-                                                    <th className="center">Normal</th>
-                                                    <th className="center">Alert</th>
-                                                    <th className="center">Warning</th>
-                                                    <th className="center">Danger</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                {current_status}
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                <StageRegression station="Sg.Kelantan di Kuala Krai"/>
 
-
-                <div id="container" ></div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
                 <div className="row">
                     <div className="col-sm-12">
                     <h3>Rainfall Correlation</h3>

@@ -33,8 +33,6 @@ import Station5824401 from './sg_semerak_pasir_putih';
 //Tumpat
 import Station6120401 from './sg_golok_kuala_jambu';
 
-
-
 import Forecast from './Forecast';
 
 const routes = [
@@ -95,7 +93,7 @@ const SidebarExample = () => (
                    <li className="">
                         <a>
                             <i className="clip-bars"></i>
-                            <span className="title"> Kelantan Current Situation </span><i className="icon-arrow"></i>
+                            <span className="title"> Current Situation </span><i className="icon-arrow"></i>
                         </a>
                         <ul className="sub-menu">
                             <li>
