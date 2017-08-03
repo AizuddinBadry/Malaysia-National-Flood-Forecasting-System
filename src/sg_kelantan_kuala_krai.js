@@ -38,14 +38,13 @@ class sg_kelantan_kuala_krai extends Component {
     var self = this;
     var water_level = []
     var forecasted = []
-
-
     }
 
   handleChange(date) {
     var self = this;
+    var newDate = date;
       self.setState({
-        startDate: date
+        startDate: newDate
       });
     }
 
@@ -865,13 +864,14 @@ const unitHydrographOption = {
                     dateFormat="D/M/YYYY"
                     selected={this.state.startDate}
                     onChange={this.handleChange}
-                    minDate={moment().subtract(7, 'days').calendar()}
+                    minDate={moment().subtract(7, 'days')}
                     maxDate={moment()}
                     placeholderText="Select a date between today and 7 days backwards"
                   />
                   </center>
                   
-                    <PastRecord/>
+                    <PastRecord date={moment(this.state.startDate).format('D/M/YYYY')} station="Sg.Kelantan di Kuala Krai"/>
+
                 </div>
               </div>
 
