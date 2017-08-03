@@ -245,104 +245,6 @@ componentDidMount() {
 				self.setState({elevenPM : response.data[i]['water_level'], forecast_elevenPM:response.data[i]['stage_forecast']})
 			}
 
-
-			if(!(response.data[i]['time'] === '00:00'))
-			{
-				self.setState({twelveAM : '', forecast_twelveAM:''})
-			}
-			else if(!(response.data[i]['time'] === '01:00'))
-			{
-				self.setState({oneAM : '', forecast_oneAM:''})
-			}
-			else if(!(response.data[i]['time'] === '02:00'))
-			{
-				self.setState({twoAM : '', forecast_twoAM:''})
-			}
-			else if(!(response.data[i]['time'] === '03:00'))
-			{
-				self.setState({threeAM : '', forecast_threeAM:''})
-			}
-			else if(!(response.data[i]['time'] === '04:00'))
-			{
-				self.setState({fourAM : '', forecast_fourAM:''})
-			}
-			else if(!(response.data[i]['time'] === '05:00'))
-			{
-				self.setState({fiveAM : '', forecast_fiveAM:''})
-			}
-			else if(!(response.data[i]['time'] === '06:00'))
-			{
-				self.setState({sixAM : '', forecast_sixAM:''})
-			}
-			else if(!(response.data[i]['time'] === '07:00'))
-			{
-				self.setState({sevenAM : response.data[i]['water_level'], forecast_sevenAM:response.data[i]['stage_forecast']})
-			}
-			else if(response.data[i]['time'] === '08:00')
-			{
-				self.setState({eightAM : response.data[i]['water_level'], forecast_eightAM:response.data[i]['stage_forecast']})
-			}
-			else if(response.data[i]['time'] === '09:00')
-			{
-				self.setState({nineAM : response.data[i]['water_level'], forecast_nineAM:response.data[i]['stage_forecast']})
-			}
-			else if(response.data[i]['time'] === '10:00')
-			{
-				self.setState({tenAM : response.data[i]['water_level'], forecast_tenAM:response.data[i]['stage_forecast']})
-			}
-			else if(response.data[i]['time'] === '11:00')
-			{
-				self.setState({elevenAM : response.data[i]['water_level'], forecast_elevenAM:response.data[i]['stage_forecast']})
-			}
-			else if(response.data[i]['time'] === '12:00')
-			{
-				self.setState({twelvePM : response.data[i]['water_level'], forecast_twelvePM:response.data[i]['stage_forecast']})
-			}
-			else if(response.data[i]['time'] === '13:00')
-			{
-				self.setState({onePM : response.data[i]['water_level'], forecast_onePM:response.data[i]['stage_forecast']})
-			}
-			else if(response.data[i]['time'] === '14:00')
-			{
-				self.setState({twoPM : response.data[i]['water_level'], forecast_twoPM:response.data[i]['stage_forecast']})
-			}
-			else if(response.data[i]['time'] === '15:00')
-			{
-				self.setState({threePM : response.data[i]['water_level'], forecast_threePM:response.data[i]['stage_forecast']})
-			}
-			else if(response.data[i]['time'] === '16:00')
-			{
-				self.setState({fourPM : response.data[i]['water_level'], forecast_fourPM:response.data[i]['stage_forecast']})
-			}
-			else if(response.data[i]['time'] === '17:00')
-			{
-				self.setState({fivePM : response.data[i]['water_level'], forecast_fivePM:response.data[i]['stage_forecast']})
-			}
-			else if(!(response.data[i]['time'] === '18:00'))
-			{
-				self.setState({sixPM : '0', forecast_sixPM:'0'})
-			}
-			else if(!(response.data[i]['time'] === '19:00'))
-			{
-				self.setState({sevenPM : '0', forecast_sevenPM:'0'})
-			}
-			else if(response.data[i]['time'] === '20:00')
-			{
-				self.setState({eightPM : response.data[i]['water_level'], forecast_eightPM:response.data[i]['stage_forecast']})
-			}
-			else if(response.data[i]['time'] === '21:00')
-			{
-				self.setState({ninePM : response.data[i]['water_level'], forecast_ninePM:response.data[i]['stage_forecast']})
-			}
-			else if(response.data[i]['time'] === '22:00')
-			{
-				self.setState({tenPM : response.data[i]['water_level'], forecast_tenPM:response.data[i]['stage_forecast']})
-			}
-			else if(response.data[i]['time'] === '23:00')
-			{
-				self.setState({elevenPM : response.data[i]['water_level'], forecast_elevenPM:response.data[i]['stage_forecast']})
-			}
-
 			
 		}
 	})
@@ -352,6 +254,14 @@ componentDidMount() {
 	});
 	self.interval = setInterval(() => self.request(), 1000);
 }
+
+componentWillReceiveProps(nextProps){
+    this.setState({oneAM: '',twoAM: '',threeAM: '',fourAM: '',fiveAM: '',sixAM: '',sevenAM: '',eightAM: '',nineAM: '',tenAM: '',elevenAM: '',
+twelvePM: '', onePM: '',twoPM: '',threePM: '',fourPM: '',fivePM: '',sixPM: '',sevenPM: '',eightPM: '',ninePM: '',tenPM: '',
+elevenPM: '',twelveAM: '',forecast_oneAM: '',forecast_twoAM: '',forecast_threeAM: '',forecast_fourAM: '',forecast_fiveAM: '',forecast_sixAM: '',forecast_sevenAM: '',forecast_eightAM: '',forecast_nineAM: '',forecast_tenAM: '',forecast_elevenAM: '',
+forecast_twelvePM: '', forecast_onePM: '',forecast_twoPM: '',forecast_threePM: '',forecast_fourPM: '',forecast_fivePM: '',forecast_sixPM: '',forecast_sevenPM: '',forecast_eightPM: '',forecast_ninePM: '',forecast_tenPM: '',
+forecast_elevenPM: '',forecast_twelveAM: ''})
+  }
 
 render() {
 var self = this;
