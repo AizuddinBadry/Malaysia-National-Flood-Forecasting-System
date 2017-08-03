@@ -270,10 +270,10 @@ let current_status = self.state.current_status.map((index) =>
 	<td className="center">{index.time}</td>
 	<td className="center">{index.water_level}</td>
 	<td className="center">{index.stage_forecast}</td>
-	<td className="center" style={{backgroundColor: bgColors.Green}}>17.00</td>
-	<td className="center" style={{backgroundColor: bgColors.Yellow}}>20.00</td>
-	<td className="center" style={{backgroundColor: bgColors.Orange}}>22.50</td>
-	<td className="center" style={{backgroundColor: bgColors.Red}}>25.00</td>
+	<td className="center" style={{backgroundColor: bgColors.Green}}>{this.props.normal}</td>
+	<td className="center" style={{backgroundColor: bgColors.Yellow}}>{this.props.alert}</td>
+	<td className="center" style={{backgroundColor: bgColors.Orange}}>{this.props.warning}</td>
+	<td className="center" style={{backgroundColor: bgColors.Red}}>{this.props.danger}</td>
 </tr>
 );
 const data = {
@@ -301,7 +301,12 @@ datasets: [
 	pointRadius: 1,
 	pointHitRadius: 10,
 	type:'line',
-	data: [25.00, 25.00, 25.00, 25.00, 25.00, 25.00, 25.00, 25.00, 25.00, 25.00, 25.00, 25.00, 25.00, 25.00, 25.00, 25.00, 25.00, 25.00, 25.00, 25.00, 25.00, 25.00, 25.00, 25.00],
+	data: [this.props.alert,this.props.alert,this.props.alert,this.props.alert,
+	this.props.alert,this.props.alert,this.props.alert,this.props.alert,this.props.alert,
+	this.props.alert,this.props.alert,this.props.alert,this.props.alert,this.props.alert,
+	this.props.alert,this.props.alert,this.props.alert,this.props.alert,this.props.alert
+	,this.props.alert,this.props.alert,this.props.alert,this.props.alert,this.props.alert
+	],
 },
 {
 	label: 'Warning',
@@ -323,7 +328,12 @@ datasets: [
 	pointRadius: 1,
 	pointHitRadius: 10,
 	type:'line',
-	data: [22.50, 22.50, 22.50, 22.50, 22.50, 22.50, 22.50, 22.50, 22.50, 22.50, 22.50, 22.50, 22.50, 22.50, 22.50, 22.50, 22.50, 22.50, 22.50, 22.50, 22.50, 22.50, 22.50, 22.50]
+	data: [this.props.warning,this.props.warning,this.props.warning,this.props.warning,
+	this.props.warning,this.props.warning,this.props.warning,this.props.warning,this.props.warning,
+	this.props.warning,this.props.warning,this.props.warning,this.props.warning,this.props.warning,
+	this.props.warning,this.props.warning,this.props.warning,this.props.warning,this.props.warning
+	,this.props.warning,this.props.warning,this.props.warning,this.props.warning,this.props.warning
+	],
 },
 {
 	label: 'Danger',
@@ -345,7 +355,12 @@ datasets: [
 	pointRadius: 1,
 	pointHitRadius: 10,
 	type:'line',
-	data: [22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22]
+	data: [this.props.danger,this.props.danger,this.props.danger,this.props.danger,
+	this.props.danger,this.props.danger,this.props.danger,this.props.danger,this.props.danger,
+	this.props.danger,this.props.danger,this.props.danger,this.props.danger,this.props.danger,
+	this.props.danger,this.props.danger,this.props.danger,this.props.danger,this.props.danger
+	,this.props.danger,this.props.danger,this.props.danger,this.props.danger,this.props.danger
+	],
 },
 
 {
@@ -404,7 +419,7 @@ scales: {
 			labelString: 'Water Level (m)'
 		},
 		ticks: {
-			min: 15,
+			suggestedMin: 15,
 			suggestedMax: 30,
 			beginAtZero: false 
 		},	

@@ -328,7 +328,12 @@ const data2 = {
       pointHitRadius: 10,
       type:'line',
       yAxisID: 'y-axis-2',
-      data: [25.00, 25.00, 25.00, 25.00, 25.00, 25.00, 25.00, 25.00, 25.00, 25.00, 25.00, 25.00, 25.00, 25.00, 25.00, 25.00, 25.00, 25.00, 25.00, 25.00, 25.00, 25.00, 25.00, 25.00],
+      data: [this.props.alert,this.props.alert,this.props.alert,this.props.alert,
+	this.props.alert,this.props.alert,this.props.alert,this.props.alert,this.props.alert,
+	this.props.alert,this.props.alert,this.props.alert,this.props.alert,this.props.alert,
+	this.props.alert,this.props.alert,this.props.alert,this.props.alert,this.props.alert
+	,this.props.alert,this.props.alert,this.props.alert,this.props.alert,this.props.alert
+	],
     },
     {
       label: 'Warning',
@@ -351,7 +356,12 @@ const data2 = {
       pointHitRadius: 10,
       type:'line',
       yAxisID: 'y-axis-2',
-      data: [22.50, 22.50, 22.50, 22.50, 22.50, 22.50, 22.50, 22.50, 22.50, 22.50, 22.50, 22.50, 22.50, 22.50, 22.50, 22.50, 22.50, 22.50, 22.50, 22.50, 22.50, 22.50, 22.50, 22.50, 22.50, 22.50, 22.50, 22.50, 22.50, 22.50, 22.50, 22.50, 22.50, 22.50, 22.50, 22.50]
+      data: [this.props.warning,this.props.warning,this.props.warning,this.props.warning,
+	this.props.warning,this.props.warning,this.props.warning,this.props.warning,this.props.warning,
+	this.props.warning,this.props.warning,this.props.warning,this.props.warning,this.props.warning,
+	this.props.warning,this.props.warning,this.props.warning,this.props.warning,this.props.warning
+	,this.props.warning,this.props.warning,this.props.warning,this.props.warning,this.props.warning
+	],
     },
     {
       label: 'Danger',
@@ -374,7 +384,12 @@ const data2 = {
       pointHitRadius: 10,
       type:'line',
       yAxisID: 'y-axis-2',
-      data: [22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22]
+      data: [this.props.danger,this.props.danger,this.props.danger,this.props.danger,
+	this.props.danger,this.props.danger,this.props.danger,this.props.danger,this.props.danger,
+	this.props.danger,this.props.danger,this.props.danger,this.props.danger,this.props.danger,
+	this.props.danger,this.props.danger,this.props.danger,this.props.danger,this.props.danger
+	,this.props.danger,this.props.danger,this.props.danger,this.props.danger,this.props.danger
+	],
     },
     {
       label: 'Forecast',

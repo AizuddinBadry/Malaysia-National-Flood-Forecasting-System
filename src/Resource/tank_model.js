@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import {Line} from 'react-chartjs-2';
+import {Line, Bar} from 'react-chartjs-2';
 import axios from 'axios';
 
 
 
-class PastRecord extends Component {
+class StageRegression extends Component {
 
 constructor() {
 super();
@@ -26,7 +26,7 @@ forecast_elevenPM: '',forecast_twelveAM: '',
 request() {
 var self = this;
 
- axios.get('https://banjirv2.herokuapp.com/Kelantan?station_name='+ this.props.station+'&date='+ this.props.date,  {'timeout': 5000})
+ axios.get('https://banjirv2.herokuapp.com/Kelantan?station_name='+ this.props.station+'&date='+ this.state.DateComponent,  {'timeout': 5000})
 .then(function (response) 
 	{
 		console.log(response.data)
@@ -252,16 +252,8 @@ componentDidMount() {
 	{
 		console.log(error);
 	});
-	self.interval = setInterval(() => self.request(), 5000);
+	self.interval = setInterval(() => self.request(), 600000);
 }
-
-componentWillReceiveProps(nextProps){
-    this.setState({oneAM: '',twoAM: '',threeAM: '',fourAM: '',fiveAM: '',sixAM: '',sevenAM: '',eightAM: '',nineAM: '',tenAM: '',elevenAM: '',
-twelvePM: '', onePM: '',twoPM: '',threePM: '',fourPM: '',fivePM: '',sixPM: '',sevenPM: '',eightPM: '',ninePM: '',tenPM: '',
-elevenPM: '',twelveAM: '',forecast_oneAM: '',forecast_twoAM: '',forecast_threeAM: '',forecast_fourAM: '',forecast_fiveAM: '',forecast_sixAM: '',forecast_sevenAM: '',forecast_eightAM: '',forecast_nineAM: '',forecast_tenAM: '',forecast_elevenAM: '',
-forecast_twelvePM: '', forecast_onePM: '',forecast_twoPM: '',forecast_threePM: '',forecast_fourPM: '',forecast_fivePM: '',forecast_sixPM: '',forecast_sevenPM: '',forecast_eightPM: '',forecast_ninePM: '',forecast_tenPM: '',
-forecast_elevenPM: '',forecast_twelveAM: ''})
-  }
 
 render() {
 var self = this;
@@ -284,221 +276,166 @@ let current_status = self.state.current_status.map((index) =>
 	<td className="center" style={{backgroundColor: bgColors.Red}}>25.00</td>
 </tr>
 );
-const data = {
-labels: ['00.00', '01.00', '02.00', '03.00', '04.00', '05.00', '06.00', '07.00', '08.00', '09.00', '10.00', 
-'11.00', '12.00', '13.00', '14.00', '15.00', '16.00', '17.00', '18.00', '19.00', '20.00', '22.00', 
-'22.00', '23.00', ],
-datasets: [
-{
-	label: 'Alert',
-	fill: false,
-	lineTension: 0.1,
-	backgroundColor: '#FFFC33',
-	borderColor: '#E2DF03',
-	borderCapStyle: 'butt',
-	borderDash: [],
-	borderDashOffset: 0.0,
-	borderJoinStyle: 'miter',
-	pointBorderColor: '#FFFC33',
-	pointBackgroundColor: '#fff',
-	pointBorderWidth: 1,
-	pointHoverRadius: 5,
-	pointHoverBackgroundColor: '#FFFC33',
-	pointHoverBorderColor: '#E2DF03',
-	pointHoverBorderWidth: 2,
-	pointRadius: 1,
-	pointHitRadius: 10,
-	type:'line',
-	data: [this.props.alert,this.props.alert,this.props.alert,this.props.alert,
-	this.props.alert,this.props.alert,this.props.alert,this.props.alert,this.props.alert,
-	this.props.alert,this.props.alert,this.props.alert,this.props.alert,this.props.alert,
-	this.props.alert,this.props.alert,this.props.alert,this.props.alert,this.props.alert
-	,this.props.alert,this.props.alert,this.props.alert,this.props.alert,this.props.alert
-	],
-},
-{
-	label: 'Warning',
-	fill: false,
-	lineTension: 0.1,
-	backgroundColor: '#FFB448',
-	borderColor: '#FC9705',
-	borderCapStyle: 'butt',
-	borderDash: [],
-	borderDashOffset: 0.0,
-	borderJoinStyle: 'miter',
-	pointBorderColor: '#FFB448',
-	pointBackgroundColor: '#fff',
-	pointBorderWidth: 1,
-	pointHoverRadius: 5,
-	pointHoverBackgroundColor: '#FFB448',
-	pointHoverBorderColor: '#FFB448',
-	pointHoverBorderWidth: 2,
-	pointRadius: 1,
-	pointHitRadius: 10,
-	type:'line',
-	data: [this.props.warning,this.props.warning,this.props.warning,this.props.warning,
-	this.props.warning,this.props.warning,this.props.warning,this.props.warning,this.props.warning,
-	this.props.warning,this.props.warning,this.props.warning,this.props.warning,this.props.warning,
-	this.props.warning,this.props.warning,this.props.warning,this.props.warning,this.props.warning
-	,this.props.warning,this.props.warning,this.props.warning,this.props.warning,this.props.warning
-	],
-},
-{
-	label: 'Danger',
-	fill: false,
-	lineTension: 0.1,
-	backgroundColor: '#FF0000',
-	borderColor: '#D50303',
-	borderCapStyle: 'butt',
-	borderDash: [],
-	borderDashOffset: 0.0,
-	borderJoinStyle: 'miter',
-	pointBorderColor: '#FF0000',
-	pointBackgroundColor: '#fff',
-	pointBorderWidth: 1,
-	pointHoverRadius: 5,
-	pointHoverBackgroundColor: '#FF0000',
-	pointHoverBorderColor: '#FF0000',
-	pointHoverBorderWidth: 2,
-	pointRadius: 1,
-	pointHitRadius: 10,
-	type:'line',
-	data: [this.props.danger,this.props.danger,this.props.danger,this.props.danger,
-	this.props.danger,this.props.danger,this.props.danger,this.props.danger,this.props.danger,
-	this.props.danger,this.props.danger,this.props.danger,this.props.danger,this.props.danger,
-	this.props.danger,this.props.danger,this.props.danger,this.props.danger,this.props.danger
-	,this.props.danger,this.props.danger,this.props.danger,this.props.danger,this.props.danger
-	],
-},
-
-{
-	label: 'Current',
-	fill: false,
-	lineTension: 0.1,
-	backgroundColor: '#0097FF',
-	borderColor: '#0076C7',
-	borderCapStyle: 'butt',
-	borderDash: [],
-	borderDashOffset: 0.0,
-	borderJoinStyle: 'miter',
-	pointBorderColor: '#0097FF',
-	pointBackgroundColor: '#fff',
-	pointBorderWidth: 1,
-	pointHoverRadius: 5,
-	pointHoverBackgroundColor: '#0097FF',
-	pointHoverBorderColor: '#0097FF',
-	pointHoverBorderWidth: 2,
-	pointRadius: 1,
-	pointHitRadius: 10,
-	data: [this.state.twelveAM, this.state.oneAM, this.state.twoAM, this.state.threeAM, this.state.fourAM, this.state.fiveAM, this.state.sixAM, this.state.sevenAM, this.state.eightAM, this.state.nineAM, this.state.tenAM, this.state.elevenAM, this.state.twelvePM, this.state.onePM, this.state.twoPM, this.state.threePM, this.state.fourPM, this.state.fivePM, this.state.sixPM, this.state.sevenPM, this.state.eightPM, this.state.ninePM, this.state.tenPM, this.state.elevenPM]
-},
-{
-	label: 'Forecast',
-	fill: false,
-	lineTension: 0.1,
-	backgroundColor: '#FF0051',
-	borderColor: '#D60145',
-	borderCapStyle: 'butt',
-	borderDash: [10],
-	borderDashOffset: 0.0,
-	borderJoinStyle: 'miter',
-	pointBorderColor: '#FF0051',
-	pointBackgroundColor: '#fff',
-	pointBorderWidth: 1,
-	pointHoverRadius: 5,
-	pointHoverBackgroundColor: '#FF0051',
-	pointHoverBorderColor: '#FF0051',
-	pointHoverBorderWidth: 2,
-	pointRadius: 1,
-	pointHitRadius: 30,
-	data: [this.state.forecast_twelveAM, this.state.forecast_oneAM, this.state.forecast_twoAM, this.state.forecast_threeAM, this.state.forecast_fourAM, this.state.forecast_fiveAM, this.state.forecast_sixAM, this.state.forecast_sevenAM, this.state.forecast_eightAM, this.state.forecast_nineAM, this.state.forecast_tenAM, this.state.forecast_elevenAM, this.state.forecast_twelvePM, this.state.forecast_onePM, this.state.forecast_twoPM, this.state.forecast_threePM, this.state.forecast_fourPM, this.state.forecast_fivePM, this.state.forecast_sixPM, this.state.forecast_sevenPM, this.state.forecast_eightPM, this.state.forecast_ninePM, this.state.forecast_tenPM, this.state.forecast_elevenPM]
-}
-],
+const tankModelData = {
+   labels: ['00.00', '01.00', '02.00', '03.00', '04.00', '05.00', '06.00', '07.00', '08.00', '09.00', '10.00', 
+            '11.00', '12.00', '13.00', '14.00', '15.00', '16.00', '17.00', '18.00', '19.00', '20.00', '22.50.00', 
+            '22.00', '23.00', ],
+  datasets: [{
+      label: 'Water Level',
+      type:'line',
+      data: [18.31, 18.32, 18.25, 18.15, 18.40, 18.45, 18.45, 18.32, 18.25, 18.15, 18.40, 18.25, 18.35, 18.32, 18.25, 18.15, 18.40, 18.85, 18.55, 18.32, 18.25, 18.15, 18.40, 18.85, 18.55, 18.32, 18.25, 18.15, 18.40, 18.85, 18.55, 18.32, 18.25, 18.15, 18.40, 18.85],
+      fill: false,
+      backgroundColor: '#0097FF',
+      borderColor: '#0076C7',
+      pointBorderColor: '#0097FF',
+      pointBackgroundColor: '#0097FF',
+      pointHoverBackgroundColor: '#0097FF',
+      pointHoverBorderColor: '#0076C7',
+      yAxisID: 'y-axis-2'
+    },
+    {
+      label: 'Forecast',
+      fill: false,
+      lineTension: 0.1,
+      backgroundColor: '#FF0051',
+      borderColor: '#D60145',
+      borderCapStyle: 'butt',
+      borderDash: [],
+      borderDashOffset: 0.0,
+      borderJoinStyle: 'miter',
+      pointBorderColor: '#FF0051',
+      pointBackgroundColor: '#fff',
+      pointBorderWidth: 1,
+      pointHoverRadius: 5,
+      pointHoverBackgroundColor: '#FF0051',
+      pointHoverBorderColor: '#FF0051',
+      pointHoverBorderWidth: 2,
+      pointRadius: 1,
+      pointHitRadius: 30,
+      yAxisID: 'y-axis-2',
+      type:'line',
+      data: [18.35, 18.37, 18.28, 18.18, 18.43, 18.48, 18.48, 18.37, 18.38, 18.28, 18.43, 18.28, 18.28, 18.37, 18.28, 18.22, 18.43, 18.88, 18.58, 18.47, 18.28, 18.18, 18.43, 18.88, 18.58, 18.37, 18.28, 18.18, 18.43, 18.88, 18.58, 18.37, 18.28, 18.18, 18.43, 18.88]
+    },
+    {
+      type: 'bar',
+      label: 'Rainfall',
+      data: [200, 185, 230, 221, 250, 200, 95, 200, 185, 290, 221, 250, 200, 95, 200, 185, 290, 421, 350, 300, 95, 250, 400, 95, ],
+      fill: false,
+      backgroundColor: '#05F8E5',
+      borderColor: '#08C3B4',
+      hoverBackgroundColor: '#08C3B4',
+      hoverBorderColor: '#08C3B4',
+      yAxisID: 'y-axis-1',
+      xAxisID: 'x-axis-1'
+    }
+    ]
 };
 
-const options = {
-responsive: true,
-maintainAspectRatio: false,
-scales: {
-	yAxes: [
-		{
-		scaleLabel: {
-			display: true,
-			labelString: 'Water Level (m)'
-		},
-		ticks: {
-			suggestedMin: 15,
-			suggestedMax: 30,
-			beginAtZero: false 
-		},	
-	}],
-xAxes: [{
-scaleLabel: {
-display: true,
-labelString: 'Time'
-}
-}]
-}
-}
+const tankModelOption = {
+  responsive: true,
+  tooltips: {
+    mode: 'label'
+  },
+  elements: {
+    line: {
+      fill: false
+    }
+  },
+  scales: {
+    xAxes: [
+      {
+        display: true,
+        gridLines: {
+          display: false
+        },
+        labels: {
+          show: true
+        },
+        position: 'bottom',
+        id: 'x-axis-1',
+        ticks: {
+        reverse: true
+        },
+        scaleLabel: {
+          display: true,
+          labelString: 'Time'
+        }
+      },
+    ],
+    yAxes: [
+      {
+        type: 'linear',
+        display: true,
+        position: 'left',
+        id: 'y-axis-2',
+        gridLines: {
+          display: false
+        },
+        labels: {
+          show: true
+        },
+         ticks: {
+          suggestedMin: 19,
+          suggestedMax: 20
+        },
+        scaleLabel: {
+          display: true,
+          labelString: 'Water Level (m)'
+        }
+      },
+      {
+        type: 'linear',
+        display: true,
+        position: 'right',
+        id: 'y-axis-1',
+        gridLines: {
+          display: false
+        },
+        ticks: {
+          beginAtZero: true,
+          reverse: true,
+          suggestedMax: 1000
+                
+        },
+        scaleLabel: {
+          display: true,
+          labelString: 'Rainfall (mm)'
+        },
+        labels: {
+          show: true
+        }
+      }
+    ]
+  }
+};
 
 
 
 return (
 <div style={{"width" : "100%"}}> 
-			<div className="panel panel-default">
-				<div className="panel-heading">
-					<i className="clip-stats"></i> Sg. Kelantan di Kuala Krai Station Regression Chart
-					<div className="panel-tools">
-						<a className="btn btn-xs btn-link panel-collapse collapses">
-						</a>
-					</div>
-				</div>
-				<div className="panel-body">
-					<div className="row">
-					<center><p><span className="label label-info">Record for : {this.props.date}</span></p></center>
-						<div className="col-md-12">
-							<div className="flot-medium-container">
-								<Line data={data} options={options} />
-							</div>
-
-						</div>
-					</div>
-					<div className="row">
-						<div className="col-md-12">
-							<div className="panel panel-default">
-								<div className="panel-heading">
-									<i className="fa fa-external-link-square"></i> Current Water Level Status
-									<div className="panel-tools">
-										<a className="btn btn-xs btn-link panel-collapse collapses">
-										</a>
-									</div>
-								</div>
-								<div className="panel-body">
-									<table className="table table-bordered table-hover">
-										<thead>
-											<tr>
-												<th className="center">Time</th>
-												<th className="center">River Level</th>
-												<th className="center">Forecast</th>
-												<th className="center">Normal</th>
-												<th className="center">Alert</th>
-												<th className="center">Warning</th>
-												<th className="center">Danger</th>
-											</tr>
-										</thead>
-										<tbody>
-											{current_status}
-										</tbody>
-									</table>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+	<div className="row">
+                    <div className="col-sm-12">
+                    <h3>Tank Model</h3>
+                        <div className="panel panel-default">
+                            <div className="panel-heading">
+                                <i className="clip-stats"></i> Sg. Kelantan di Kuala Krai Station Tank Model Chart
+                                <div className="panel-tools">
+                                    <a className="btn btn-xs btn-link panel-collapse collapses" href="index.html#">
+                                    </a>
+                                </div>
+                            </div>
+                            <div className="panel-body">
+                                <div className="flot-medium-container">
+                                    <Bar data={tankModelData} options={tankModelOption} />
+                                </div>
+                                 <center><span className="label label-info">Date : {this.state.DateComponent}</span></center>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+</div>
 );
 }
 }
 
-export default PastRecord;
+export default StageRegression;
