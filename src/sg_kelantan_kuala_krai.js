@@ -69,8 +69,6 @@ class sg_kelantan_kuala_krai extends Component {
             
                 <StageRegression station="Sg.Kelantan di Kuala Krai" normal="17.00" alert="20.00" warning="22.50" danger="25.00"/>
                 <RainfallCorrelation station="Sg.Kelantan di Kuala Krai" normal="17.00"alert="20.00" warning="22.50" danger="25.00"/>
-                <TankModel station="Sg.Kelantan di Kuala Krai" normal="17.00"alert="20.00" warning="22.50" danger="25.00"/>
-                <UnitHydrograph station="Sg.Kelantan di Kuala Krai" normal="17.00"alert="20.00" warning="22.50" danger="25.00"/>
                 
               
               <div className="row">

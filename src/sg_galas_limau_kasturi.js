@@ -69,8 +69,6 @@ class sg_galas_limau_kasturi extends Component {
             
                 <StageRegression station="Sg. Galas di Limau Kasturi" normal="53.00" alert="56.00" warning="57.50" danger="59.00"/>
                 <RainfallCorrelation station="Sg. Galas di Limau Kasturi" normal="53.00" alert="56.00" warning="57.50" danger="59.00"/>
-                <TankModel station="Sg. Galas di Limau Kasturi" alert="56.00" normal="53.00" warning="57.50" danger="59.00"/>
-                <UnitHydrograph station="Sg. Galas di Limau Kasturi" normal="53.00" alert="56.00" warning="57.50" danger="59.00"/>
                 
               
               <div className="row">

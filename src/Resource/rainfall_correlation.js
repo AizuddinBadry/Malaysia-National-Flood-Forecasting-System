@@ -503,9 +503,9 @@ return (
                     <h3>Rainfall Correlation</h3>
                         <div className="panel panel-default">
                             <div className="panel-heading">
-                                <i className="clip-stats"></i> Sg. Kelantan di Kuala Krai Station Rainfall Chart
+                                <i className="clip-stats"></i> Sg. Kelantan di Kuala Krai Station Rainfall Chart 
                                 <div className="panel-tools">
-                                    <a className="btn btn-xs btn-link panel-collapse collapses" href="index.html#">
+                                    <a className="btn btn-xs btn-link panel-collapse collapses">
                                     </a>
                                 </div>
                             </div>
